@@ -10,6 +10,6 @@ class EntriesController < ActionController::Base
 
   private
     def create_params
-      params.require(:entry).permit(:email, :mobile, :location, :brand, :type_of)
+      params.require(:entry).permit(:mobile)
     end
 end
