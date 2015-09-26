@@ -1,7 +1,8 @@
 class EntriesController < ActionController::Base
   
   def create
-    if(Entry.create(create_params))
+    entry = Entry.new(create_params)
+    if(entry.save)
       redirect_to "/terms"
     else
       redirect_to "/"

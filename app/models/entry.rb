@@ -5,12 +5,27 @@ class Entry < ActiveRecord::Base
   belongs_to :material
   belongs_to :truck_type
   belongs_to :truck
-   
+
   validates :mobile, :number_of_trucks, :from_city_id, :to_city_id, :weight_id, :truck_type_id, :material_id, presence: true
-  after_create :send_notification_to_fleet_managers
+  before_validation :check_equality_of_from_and_to_city
+  before_validation :check_that_schedule_date_is_in_future
   before_save :check_if_allocated
+  after_create :send_notification_to_fleet_managers
 
   private
+
+    def check_equality_of_from_and_to_city
+      if(from_city_id == to_city_id)
+        return false
+      end
+    end
+
+    def check_that_schedule_date_is_in_future
+      if date.to_date < Date.today
+        return false
+      end
+    end
+
     def send_notification_to_fleet_managers
       # Instantiate a Twilio client
       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])

@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label class="" for="form-last-name">Truck Type</label>
-                                        <%= select_tag(:material_id, options_for_select(TruckType.pluck(:name, :id)), class: 'form-control') %>
+                                        <%= select_tag(:truck_type_id, options_for_select(TruckType.pluck(:name, :id)), class: 'form-control') %>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label class="" for="form-last-name">Weight</label>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label class="" for="form-first-name">Scheduled Date</label>
-                                        <input type="text" name="date" placeholder="dd/mm/YYYY" class="form-control" id="form-first-name">
+                                        <input type="text" name="date" placeholder="dd/mm/YYYY" class="form-control date-field" id="form-first-name">
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label class="" for="form-first-name">Number of Trucks</label>
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label class="" for="form-first-name">Mobile</label>
-                                        <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="form-first-name">
+                                        <input type="text" name="mobile" placeholder="Mobile" class="form-control mobile-field" id="form-first-name">
                                     </div>
                                     <button type="submit" class="submit-btn btn">Get me a Truck!</button>
                                 </form>
