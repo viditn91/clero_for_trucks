@@ -10,6 +10,6 @@ class EntriesController < ActionController::Base
 
   private
     def create_params
-      params.require(:entry).permit(:mobile)
+      params.permit(:from_city_id, :to_city_id, :material_id, :truck_type_id, :weight_id, :date, :number_of_trucks, :mobile)
     end
 end

@@ -52,12 +52,29 @@ ActiveAdmin.register Entry do
         f.input :date, :as => :datepicker
         f.input :number_of_trucks
       end
+      actions
     else
-      f.inputs "Allocate Truck" do
-        truck_owner_ids = Route.where(city_id: [f.object.from_city_id, f.object.to_city_id]).pluck(:truck_owner_id)
-        f.input :truck, :as => :select, :collection => Truck.where(truck_owner_id: truck_owner_ids).map{|t| [t.number, t.id]}
+      truck_owner_ids = Route.where(city_id: [f.object.from_city_id, f.object.to_city_id]).pluck(:truck_owner_id)
+      
+      f.inputs "Eligible Truck Owners" do
+        if truck_owner_ids.present?
+          TruckOwner.where(id: truck_owner_ids).each do |owner|
+            ul do
+              li { "#{ owner.name } : #{ owner.mobile }" }
+            end
+          end
+        else
+          li { "No Truck Owner operates on the selected route" }
+        end
+      end
+
+
+      if truck_owner_ids.present?
+        f.inputs "Allocate Truck" do
+          f.input :truck, :as => :select, :collection => Truck.where(truck_owner_id: truck_owner_ids).map{|t| [t.number, t.id]}
+        end
+        actions
       end
     end
-    actions
   end
 end
