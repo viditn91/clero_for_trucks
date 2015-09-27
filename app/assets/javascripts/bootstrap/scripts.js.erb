@@ -47,6 +47,14 @@ jQuery(document).ready(function() {
         });
 
     });
-    
-    
+
+    $('.from-city-field select').on('change', function(){
+        var value = $(this).val() == "1" ? "2" : "1";
+        $('.to-city-field option').removeClass('hide');
+        $('.to-city-field option[value=' + $(this).val() + ']').addClass('hide');
+        $('.to-city-field select').val(value);
+    });
+
+    $('.to-city-field option[value=1]').addClass('hide');
+    $('.to-city-field select').val(2);
 });
