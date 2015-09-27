@@ -47,3 +47,21 @@
  option.hide {
  	display: none;
  }
+
+ .book {
+ 	margin-top: 20px;
+ 	margin-left: 20px;
+ 	width: 90px;
+ }
+
+ .summary {
+ 	font-size: 16px;
+ }
+
+ .fa-envelope {
+ 	font-size: 30px;
+ }
+
+ .fa-phone {
+ 	font-size: 30px;
+ }
