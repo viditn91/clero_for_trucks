@@ -32,23 +32,23 @@ class Entry < ActiveRecord::Base
       body = "New demand entry --> From: #{ from_city.name }, To: #{ to_city.name}, Material: #{ material.name }, TruckType: #{ truck_type.name }, Weight: #{ weight.name }, Contact: #{ mobile }"
 
       # Create and send an SMS message
-      # client.account.messages.create(
-      #   from: TWILIO_CONFIG['from'],
-      #   to: '+919051833262',
-      #   body: body
-      # )
+      client.account.messages.create(
+        from: TWILIO_CONFIG['from'],
+        to: '+919051833262',
+        body: body
+      )
 
-      # client.account.messages.create(
-      #   from: TWILIO_CONFIG['from'],
-      #   to: '+919718890073',
-      #   body: body
-      # )
+      client.account.messages.create(
+        from: TWILIO_CONFIG['from'],
+        to: '+919718890073',
+        body: body
+      )
 
-      # client.account.messages.create(
-      #   from: TWILIO_CONFIG['from'],
-      #   to: '+919869156273',
-      #   body: body
-      # )
+      client.account.messages.create(
+        from: TWILIO_CONFIG['from'],
+        to: '+919869156273',
+        body: body
+      )
     end
 
     def check_if_allocated
