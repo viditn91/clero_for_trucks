@@ -11,6 +11,6 @@ class EntriesController < ActionController::Base
 
   private
     def create_params
-      params.permit(:source, :destination, :material_id, :truck_type_id, :weight_id, :date, :number_of_trucks, :mobile)
+      params.permit(:source, :destination, :material_id, :truck_type_id, :weight, :date, :number_of_trucks, :mobile)
     end
 end

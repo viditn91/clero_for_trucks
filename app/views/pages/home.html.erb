@@ -76,8 +76,8 @@
                                 <%= select_tag(:truck_type_id, options_for_select(TruckType.pluck(:name, :id)), class: 'form-control') %>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label class="" for="form-last-name">Weight</label>
-                                <%= select_tag(:weight_id, options_for_select(Weight.pluck(:name, :id)), class: 'form-control') %>
+                                <label class="" for="form-last-name">Weight (MT)</label>
+                                <input type="number" class="form-control" name="weight" min="1" max="40" value="1"></input>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="" for="form-first-name">Scheduled Date</label>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="" for="form-first-name">Number of Trucks</label>
-                                <%= select_tag(:number_of_trucks, options_for_select((1..10).to_a), class: 'form-control') %>
+                              <input type="number" class="form-control" name="number_of_trucks" min="1" max="10" value="1"></input>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="" for="form-first-name">Mobile</label>

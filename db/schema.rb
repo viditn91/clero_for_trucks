@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924144659) do
+ActiveRecord::Schema.define(version: 20151006205335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150924144659) do
     t.integer  "to_city_id"
     t.integer  "material_id"
     t.integer  "truck_type_id"
-    t.integer  "weight_id"
     t.integer  "truck_id"
     t.datetime "date"
     t.integer  "number_of_trucks"
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150924144659) do
     t.string   "mobile"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "weight"
   end
 
   create_table "material_truck_types", force: :cascade do |t|
