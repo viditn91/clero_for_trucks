@@ -1,180 +1,270 @@
 <!-- Top menu -->
-        <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button> -->
-                    <div class="navbar-brand"></div>
-                </div>
-                <!-- <div class="collapse navbar-collapse" id="top-navbar-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <span class="li-text">
-                                Contact Us: 
-                            </span> 
-                            <span class="li-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a> 
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-envelope"></i></a> 
-                                <a href="#"><i class="fa fa-skype"></i></a>
-                            </span>
-                        </li>
-                    </ul>
-                </div> -->
-            </div>
-        </nav>
-
-        <!-- Top content -->
-        <div class="top-content">
-            
-            <div class="inner-bg container">
-                <div class="">
-                    <div class="row">
-                        <div class="col-sm-7 text">
-                            <h1>Get a Truck in 5 seconds!</h1>
-                            <div class="description">
-                                <p>
-                                    Just feed in your requirements and you'll be connected with a truck owner.
-                                </p>
-                            </div>
-                            <div class="top-big-link">
-                                <a class="cta btn btn-link-1" href="#middle-section">Read More ></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 form-box">
-                            <div class="form-top">
-                                <div class="form-top-left">
-                                    <h3>Enter Load  details</h3>
-                                    <p>Fill the form to demand a truck:</p>
-                                </div>
-                                <div class="form-top-right">
-                                    <i class="fa fa-pencil"></i>
-                                </div>
-                            </div>
-                            <div class="form-bottom">
-                                <form role="form" action="/entry" method="post" class="registration-form">
-                                    <div class="form-group col-sm-6 from-city-field">
-                                        <l abel class="" for="form-last-name">From</label>
-                                        <%= select_tag(:from_city_id, options_for_select(City.pluck(:name, :id)), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6 to-city-field">
-                                        <label class="" for="form-last-name">To</label>
-                                        <%= select_tag(:to_city_id, options_for_select(City.pluck(:name, :id)), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-last-name">Material</label>
-                                        <%= select_tag(:material_id, options_for_select(Material.pluck(:name, :id)), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-last-name">Truck Type</label>
-                                        <%= select_tag(:truck_type_id, options_for_select(TruckType.pluck(:name, :id)), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-last-name">Weight</label>
-                                        <%= select_tag(:weight_id, options_for_select(Weight.pluck(:name, :id)), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-first-name">Scheduled Date</label>
-                                        <input type="text" name="date" placeholder="dd/mm/YYYY" class="form-control date-field" id="form-first-name">
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-first-name">Number of Trucks</label>
-                                        <%= select_tag(:number_of_trucks, options_for_select((1..10).to_a), class: 'form-control') %>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label class="" for="form-first-name">Mobile</label>
-                                        <input type="text" name="mobile" placeholder="Mobile" class="form-control mobile-field" id="form-first-name">
-                                    </div>
-                                    <button type="submit" class="submit-btn btn">Get me a Truck!</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <br />
-                <br />
-                <br />
-                <br />
-
-            </div>
-            
+<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> -->
+            <div class="navbar-brand"></div>
         </div>
+        <!-- <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <span class="li-text">
+                        Contact Us: 
+                    </span> 
+                    <span class="li-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a> 
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-envelope"></i></a> 
+                        <a href="#"><i class="fa fa-skype"></i></a>
+                    </span>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</nav>
 
-        
-        <div id="middle-section" class="middle-content row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-                <br />
-                <br />
-                <h2>How does it work?</h2>
-                <br />
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <span class="fa-stack fa-4x">
-                            <img src="<%= asset_path('book.png') %>" class="book fa fa-circle fa-stack-2x">
-                            </span>
-                            <h4>
-                                <strong>Post your requirements</strong>
-                            </h4>
-                            <p>Fill in the details about the truck that you want in the form above</p>
-                        </div>
+<!-- Top content -->
+<div class="top-content">
+    
+    <div class="inner-bg container">
+        <div class="">
+            <div class="row">
+                <div class="col-sm-7 text">
+                    <h1>Get a Truck in 5 seconds!</h1>
+                    <div class="description">
+                        <p>
+                            Just feed in your requirements and you'll be connected with a truck owner.
+                        </p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <span class="fa-stack fa-4x">
-                            <img src="<%= asset_path('handshake.png') %>" class="fa fa-circle fa-stack-2x">
-                        </span>
-                            <h4>
-                                <strong>Get connected with a truck owner</strong>
-                            </h4>
-                            <p>You're connected directly with a truck owner with an available truck</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <span class="fa-stack fa-4x">
-                            <img src="<%= asset_path('truck.png') %>" class="fa fa-circle fa-stack-2x">
-                        </span>
-                            <h4>
-                                <strong>Your truck is on the way!</strong>
-                            </h4>
-                            <p>The truck arrives at the correct time at the location of your choice</p>
-                        </div>
+                    <div class="top-big-link">
+                        <a class="cta btn btn-link-1" href="#middle-section">Read More ></a>
                     </div>
                 </div>
-                <br />
-                <br />
-                <br />
+                <div class="col-sm-5 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Enter Load  details</h3>
+                            <p>Fill the form to demand a truck:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="/entry" method="post" class="registration-form">
+                            <div class="form-group col-sm-6 from-city-field">
+                                <label class="" for="form-last-name">From</label>
+                                <input id="autocomplete1" placeholder="Enter Source City" onFocus="geolocate1()" type="text" class="form-control" name="from"></input>
+                                <input type="hidden" name="source" />
+                            </div>
+                            <div class="form-group col-sm-6 to-city-field">
+                                <label class="" for="form-last-name">To</label>
+                                <input id="autocomplete2" placeholder="Enter Destination City" onFocus="geolocate2()" type="text" class="form-control" name="to"></input>
+                                <input type="hidden" name="destination" />
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-last-name">Material</label>
+                                <%= select_tag(:material_id, options_for_select(Material.pluck(:name, :id)), class: 'form-control') %>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-last-name">Truck Type</label>
+                                <%= select_tag(:truck_type_id, options_for_select(TruckType.pluck(:name, :id)), class: 'form-control') %>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-last-name">Weight</label>
+                                <%= select_tag(:weight_id, options_for_select(Weight.pluck(:name, :id)), class: 'form-control') %>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-first-name">Scheduled Date</label>
+                                <input type="text" name="date" placeholder="dd/mm/YYYY" class="form-control date-field" id="form-first-name">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-first-name">Number of Trucks</label>
+                                <%= select_tag(:number_of_trucks, options_for_select((1..10).to_a), class: 'form-control') %>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="" for="form-first-name">Mobile</label>
+                                <input type="text" name="mobile" placeholder="Mobile" class="form-control mobile-field" id="form-first-name">
+                            </div>
+                            <button type="submit" class="submit-btn btn">Get me a Truck!</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="bottom-content row text-center">
-            <div class="col-lg-12">
-                <br />
-                <br />
-                <h2 style="color: #ffffff">Contact Us</h2>
-                <br />
-                <div class="col-lg-2"></div>
-                <div class="summary col-lg-8">
-                    We are here to make the logistics process easier for you. 
-                    <br />
-                    Have a query? Send us an email and we will get back to you as soon as possible!
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+    
+</div>
+
+
+<div id="middle-section" class="middle-content row text-center">
+    <div class="col-lg-10 col-lg-offset-1">
+        <br />
+        <br />
+        <h2>How does it work?</h2>
+        <br />
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="service-item">
+                    <span class="fa-stack fa-4x">
+                    <img src="<%= asset_path('book.png') %>" class="book fa fa-circle fa-stack-2x">
+                    </span>
+                    <h4>
+                        <strong>Post your requirements</strong>
+                    </h4>
+                    <p>Fill in the details about the truck that you want in the form above</p>
                 </div>
-                <div class="col-lg-2"></div>
-                <br />
-                <br />
-                <br />
-                <div class="col-lg-4"></div>
-                <div class="col-lg-2"><i class="fa fa-envelope"></i>&nbsp;<a href="mailto:info@babatrucks.com">info@babatrucks.com</a></div>
-                <div class="col-lg-2"><i class="fa fa-phone"></i>&nbsp;+91-9051833262</div>
-                <div class="col-lg-4"></div>
-                <br />
-                <br />
-                <br />
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-item">
+                    <span class="fa-stack fa-4x">
+                    <img src="<%= asset_path('handshake.png') %>" class="fa fa-circle fa-stack-2x">
+                </span>
+                    <h4>
+                        <strong>Get connected with a truck owner</strong>
+                    </h4>
+                    <p>You're connected directly with a truck owner with an available truck</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-item">
+                    <span class="fa-stack fa-4x">
+                    <img src="<%= asset_path('truck.png') %>" class="fa fa-circle fa-stack-2x">
+                </span>
+                    <h4>
+                        <strong>Your truck is on the way!</strong>
+                    </h4>
+                    <p>The truck arrives at the correct time at the location of your choice</p>
+                </div>
             </div>
         </div>
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+
+<div class="bottom-content row text-center">
+    <div class="col-lg-12">
+        <br />
+        <br />
+        <h2 style="color: #ffffff">Contact Us</h2>
+        <br />
+        <div class="col-lg-2"></div>
+        <div class="summary col-lg-8">
+            We are here to make the logistics process easier for you. 
+            <br />
+            Have a query? Send us an email and we will get back to you as soon as possible!
+        </div>
+        <div class="col-lg-2"></div>
+        <br />
+        <br />
+        <br />
+        <div class="col-lg-4"></div>
+        <div class="col-lg-2"><i class="fa fa-envelope"></i>&nbsp;<a href="mailto:info@babatrucks.com">info@babatrucks.com</a></div>
+        <div class="col-lg-2"><i class="fa fa-phone"></i>&nbsp;+91-9051833262</div>
+        <div class="col-lg-4"></div>
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+
+<script>
+    // This example displays an address form, using the autocomplete feature
+    // of the Google Places API to help users fill in the information.
+
+    var placeSearch, autocomplete1, autocomplete2;
+    var componentForm = {
+      street_number: 'short_name',
+      route: 'long_name',
+      locality: 'long_name',
+      administrative_area_level_1: 'short_name',
+      country: 'long_name',
+      postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+      // Create the autocomplete object, restricting the search to geographical
+      // location types.
+      var options = {
+        types: ['(cities)'],
+        componentRestrictions: {country: "in"}
+      };
+
+      autocomplete1 = new google.maps.places.Autocomplete(
+          /** @type {!HTMLInputElement} */(document.getElementById('autocomplete1')),
+          options);
+
+      autocomplete2 = new google.maps.places.Autocomplete(
+          /** @type {!HTMLInputElement} */(document.getElementById('autocomplete2')),
+          options);
+
+      // When the user selects an address from the dropdown, populate the address
+      // fields in the form.
+      autocomplete1.addListener('place_changed', fillInAddress1);
+      autocomplete2.addListener('place_changed', fillInAddress2);
+    }
+
+    function fillInAddress1() {
+      var place = autocomplete1.getPlace();
+      var city = place.address_components && place.address_components[0].long_name;
+      $('input[name="source"]').val(city);
+    }
+
+    function fillInAddress2() {
+      var place = autocomplete2.getPlace();
+      var city = place.address_components && place.address_components[0].long_name;
+      $('input[name="destination"]').val(city);
+    }
+    // [END region_fillform]
+
+    // [START region_geolocation]
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate1() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+          });
+          autocomplete1.setBounds(circle.getBounds());
+        });
+      }
+    }
+
+    function geolocate2() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+          });
+          autocomplete2.setBounds(circle.getBounds());
+        });
+      }
+    }
+    // [END region_geolocation]
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7a5LNeN9_5NIabwFHvS5g-L8JT4nKYlc&signed_in=true&libraries=places&callback=initAutocomplete"
+    async defer></script>

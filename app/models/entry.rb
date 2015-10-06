@@ -1,4 +1,6 @@
 class Entry < ActiveRecord::Base
+  attr_accessor :source, :destination
+
   belongs_to :from_city, class_name: "City" 
   belongs_to :to_city, class_name: "City"
   belongs_to :weight
@@ -7,15 +9,37 @@ class Entry < ActiveRecord::Base
   belongs_to :truck
 
   validates :mobile, :number_of_trucks, :from_city_id, :to_city_id, :weight_id, :truck_type_id, :material_id, presence: true
+  before_validation :assign_source_and_destination
   before_validation :check_equality_of_from_and_to_city
   before_validation :check_that_schedule_date_is_in_future
   before_save :check_if_allocated
   after_create :send_notification_to_fleet_managers
 
   private
+    def assign_source_and_destination
+      if source
+        source_city = City.find_by_name(source)
+        if !source_city
+          new_city = City.create(name: source)
+          self.from_city_id = new_city.id
+        else
+          self.from_city_id = source_city.id
+        end
+      end
+
+      if destination
+        destination_city = City.find_by_name(destination)
+        if !destination_city
+          new_city = City.create(name: destination)
+          self.to_city_id = new_city.id
+        else
+          self.to_city_id = destination_city.id
+        end
+      end
+    end
 
     def check_equality_of_from_and_to_city
-      if(from_city_id == to_city_id)
+      if(from_city_id && from_city_id == to_city_id)
         return false
       end
     end
