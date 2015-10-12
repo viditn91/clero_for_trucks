@@ -1,5 +1,6 @@
 ActiveAdmin.register Entry do
-  permit_params :mobile, :from_city_id, :to_city_id, :weight_id, :material_id, :truck_type_id, :date, :number_of_trucks, :truck_id
+  permit_params :mobile, :from_city_id, :to_city_id, :weight_id, :material_id, :truck_type_id,
+                :date, :number_of_trucks, :truck_id, :ticket_price
 
   index do
     column :from_city
@@ -16,6 +17,7 @@ ActiveAdmin.register Entry do
     column :updated_at
     column :allocated_at
     column :truck
+    column :ticket_price
     column :actions do |entry|
       if entry.allocated_at.nil?
         link_to 'Allocate', edit_admin_entry_path(entry)
@@ -33,6 +35,7 @@ ActiveAdmin.register Entry do
       row :truck_type
       row :date
       row :number_of_trucks
+      row :ticket_price
       row :created_at
       row :updated_at
       row :allocated_at
@@ -72,6 +75,7 @@ ActiveAdmin.register Entry do
       if truck_owner_ids.present?
         f.inputs "Allocate Truck" do
           f.input :truck, :as => :select, :collection => Truck.where(truck_owner_id: truck_owner_ids).map{|t| [t.number, t.id]}
+          f.input :ticket_price
         end
         actions
       end

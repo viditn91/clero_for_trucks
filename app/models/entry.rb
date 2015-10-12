@@ -75,8 +75,10 @@ class Entry < ActiveRecord::Base
     end
 
     def check_if_allocated
-      if self.truck_id != nil
+      if self.truck_id && self.ticket_price
         self.allocated_at = Time.now
+      else
+        self.truck_id = nil
       end
     end
 end

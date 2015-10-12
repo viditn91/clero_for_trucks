@@ -1,10 +1,13 @@
 ActiveAdmin.register TruckOwner do
-  permit_params :name, :mobile, city_ids: []
+  permit_params :name, :mobile, :location, :id_proof, :id_number, :account_number, :ifsc_code, :bank_name, :bank_branch, city_ids: []
 
   index do
     column :id
     column :name
     column :mobile
+    column :location
+    column :id_proof
+    column :id_number
     column :cities do |truck_owner|
       truck_owner.cities.pluck :name
     end
@@ -18,6 +21,13 @@ ActiveAdmin.register TruckOwner do
       row :id
       row :name
       row :mobile
+      row :location
+      row :id_proof
+      row :id_number
+      row :account_number
+      row :ifsc_code
+      row :bank_name
+      row :bank_branch
       row :cities do |truck_owner|
         truck_owner.cities.pluck :name
       end
@@ -30,6 +40,13 @@ ActiveAdmin.register TruckOwner do
     f.inputs "Details" do
       f.input :name
       f.input :mobile
+      f.input :location
+      f.input :id_proof
+      f.input :id_number
+      f.input :account_number
+      f.input :ifsc_code
+      f.input :bank_name
+      f.input :bank_branch
       f.input :cities, :as => :check_boxes
     end
 
