@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012082556) do
+ActiveRecord::Schema.define(version: 20151022140431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,8 +113,10 @@ ActiveRecord::Schema.define(version: 20151012082556) do
     t.string   "number"
     t.integer  "truck_owner_id"
     t.integer  "truck_type_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "longitude",      default: "77.2001368"
+    t.string   "latitude",       default: "28.5494489"
   end
 
   create_table "weights", force: :cascade do |t|

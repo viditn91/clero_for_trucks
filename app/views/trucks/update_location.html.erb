@@ -1,0 +1,28 @@
+<div id="status"></div>
+
+<script>
+	document.getElementById('status').textContent = "Updating location of Truck-<%= @resource.number %>";
+	navigator.geolocation.getCurrentPosition(display_geolocation_properties, handle_error);
+
+	function display_geolocation_properties(position)
+    {
+        var request = new XMLHttpRequest();
+		var method = 'PUT';
+		var url = "http://localhost:3000/trucks/<%= @resource.id %>";
+		var async = true;
+		request.open(method, url, async);
+		request.onreadystatechange = function(){
+		  if(request.readyState == 4 && request.status == 200){
+		  	document.getElementById('status').textContent = request.responseText;
+		  }
+		};
+		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		request.send("latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude);
+    }
+
+    function handle_error(error)
+    {
+    	document.getElementById('status').textContent = "Location could not be fetched from the browser.";
+    }
+
+</script>

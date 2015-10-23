@@ -66,3 +66,8 @@
  .fa-phone {
  	font-size: 20px;
  }
+
+ #map {
+    width: 500px;
+    height: 400px;
+ }

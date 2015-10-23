@@ -60,5 +60,11 @@ Rails.application.routes.draw do
   get '/home', to: redirect('/')
   post '/entry', to: "entries#create"
 
+  resources :trucks do
+    collection do
+      get :update_location
+    end
+  end
+
   root :to => 'high_voltage/pages#show', id: 'home'
 end

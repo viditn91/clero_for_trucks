@@ -1,0 +1,29 @@
+<div style="width: 500px; height: 500px; display: inline-block; padding: 20px; padding-top: 100px; vertical-align: top;">
+	<h1 style="">
+		Current Location:
+	</h1>
+	<br />
+	<h2 id="position" style="width: 300px">
+	</h2>
+</div>
+
+<iframe width="600" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<%= resource.latitude %>,<%= resource.longitude %>&hl=es;z=14&amp;output=embed">
+</iframe>
+
+<script>
+	var request = new XMLHttpRequest();
+
+	var method = 'GET';
+	var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+<%= resource.latitude %>+','+<%= resource.longitude %>+'&sensor=true';
+	var async = true;
+
+	request.open(method, url, async);
+	request.onreadystatechange = function(){
+	  if(request.readyState == 4 && request.status == 200){
+	    var data = JSON.parse(request.responseText);
+	    var address = data.results[0];
+	    $('#position').text(address.formatted_address);
+	  }
+	};
+	request.send();
+</script>
