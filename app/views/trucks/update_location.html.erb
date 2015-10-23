@@ -8,7 +8,7 @@
     {
         var request = new XMLHttpRequest();
 		var method = 'PUT';
-		var url = "http://localhost:3000/trucks/<%= @resource.id %>";
+		var url = "<%= root_url %>/trucks/<%= @resource.id %>";
 		var async = true;
 		request.open(method, url, async);
 		request.onreadystatechange = function(){
