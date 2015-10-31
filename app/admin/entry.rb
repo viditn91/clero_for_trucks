@@ -1,6 +1,6 @@
 ActiveAdmin.register Entry do
   permit_params :mobile, :from_city_id, :to_city_id, :weight_id, :material_id, :truck_type_id,
-                :date, :number_of_trucks, :truck_id, :ticket_price
+                :date, :number_of_trucks, :truck_id, :ticket_price, :note
 
   index do
     column :from_city
@@ -13,6 +13,7 @@ ActiveAdmin.register Entry do
     column :"number of trucks" do |entry|
       entry.number_of_trucks
     end
+    column :note
     column :created_at
     column :updated_at
     column :allocated_at
@@ -35,6 +36,7 @@ ActiveAdmin.register Entry do
       row :truck_type
       row :date
       row :number_of_trucks
+      row :note
       row :ticket_price
       row :created_at
       row :updated_at
@@ -71,14 +73,17 @@ ActiveAdmin.register Entry do
         end
       end
 
+      f.inputs "Add a Note" do
+        f.input :note
+      end
 
       if truck_owner_ids.present?
         f.inputs "Allocate Truck" do
           f.input :truck, :as => :select, :collection => Truck.where(truck_owner_id: truck_owner_ids).map{|t| [t.number, t.id]}
           f.input :ticket_price
         end
-        actions
       end
+      actions
     end
   end
 end

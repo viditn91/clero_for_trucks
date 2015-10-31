@@ -59,12 +59,12 @@
                         <form role="form" action="/entry" method="post" class="registration-form">
                             <div class="form-group col-sm-6 from-city-field">
                                 <label class="" for="form-last-name">From</label>
-                                <input id="autocomplete1" placeholder="Enter Source City" onFocus="geolocate1()" type="text" class="form-control" name="from"></input>
+                                <input id="autocomplete1" placeholder="Enter Source City" type="text" class="form-control" name="from"></input>
                                 <input type="hidden" name="source" />
                             </div>
                             <div class="form-group col-sm-6 to-city-field">
                                 <label class="" for="form-last-name">To</label>
-                                <input id="autocomplete2" placeholder="Enter Destination City" onFocus="geolocate2()" type="text" class="form-control" name="to"></input>
+                                <input id="autocomplete2" placeholder="Enter Destination City" type="text" class="form-control" name="to"></input>
                                 <input type="hidden" name="destination" />
                             </div>
                             <div class="form-group col-sm-6">
@@ -230,41 +230,6 @@
     }
     // [END region_fillform]
 
-    // [START region_geolocation]
-    // Bias the autocomplete object to the user's geographical location,
-    // as supplied by the browser's 'navigator.geolocation' object.
-    function geolocate1() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var geolocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-          var circle = new google.maps.Circle({
-            center: geolocation,
-            radius: position.coords.accuracy
-          });
-          autocomplete1.setBounds(circle.getBounds());
-        });
-      }
-    }
-
-    function geolocate2() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var geolocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-          var circle = new google.maps.Circle({
-            center: geolocation,
-            radius: position.coords.accuracy
-          });
-          autocomplete2.setBounds(circle.getBounds());
-        });
-      }
-    }
-    // [END region_geolocation]
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7a5LNeN9_5NIabwFHvS5g-L8JT4nKYlc&signed_in=true&libraries=places&callback=initAutocomplete"
     async defer></script>
