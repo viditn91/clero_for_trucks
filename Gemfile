@@ -39,6 +39,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'twilio-ruby'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
