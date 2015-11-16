@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031045005) do
+ActiveRecord::Schema.define(version: 20151108084424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20151031045005) do
   create_table "truck_owners", force: :cascade do |t|
     t.string   "name"
     t.string   "mobile"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "location"
     t.string   "id_proof"
     t.string   "id_number"
@@ -116,6 +116,12 @@ ActiveRecord::Schema.define(version: 20151031045005) do
     t.string   "ifsc_code"
     t.string   "bank_name"
     t.string   "bank_branch"
+    t.string   "operator_name"
+    t.string   "operator_mobile"
+    t.string   "company_name"
+    t.string   "address"
+    t.string   "pan"
+    t.string   "regions"
   end
 
   create_table "truck_types", force: :cascade do |t|
@@ -128,10 +134,20 @@ ActiveRecord::Schema.define(version: 20151031045005) do
     t.string   "number"
     t.integer  "truck_owner_id"
     t.integer  "truck_type_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "longitude",      default: "77.2001368"
-    t.string   "latitude",       default: "28.5494489"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "longitude",         default: "77.2001368"
+    t.string   "latitude",          default: "28.5494489"
+    t.string   "manufacturer"
+    t.integer  "wheels"
+    t.date     "registration_date"
+    t.string   "chassis_number"
+    t.string   "engine_number"
+    t.string   "length"
+    t.string   "tonnage"
+    t.string   "load_preference"
+    t.string   "driver_name"
+    t.string   "driver_contact"
   end
 
   create_table "weights", force: :cascade do |t|

@@ -8,9 +8,7 @@ ActiveAdmin.register TruckOwner do
     column :location
     column :id_proof
     column :id_number
-    column :cities do |truck_owner|
-      truck_owner.cities.pluck :name
-    end
+    column :regions
     column :created_at
     column :updated_at
     actions
@@ -28,9 +26,7 @@ ActiveAdmin.register TruckOwner do
       row :ifsc_code
       row :bank_name
       row :bank_branch
-      row :cities do |truck_owner|
-        truck_owner.cities.pluck :name
-      end
+      row :regions
       row :created_at
       row :updated_at
     end
@@ -47,7 +43,7 @@ ActiveAdmin.register TruckOwner do
       f.input :ifsc_code
       f.input :bank_name
       f.input :bank_branch
-      f.input :cities, :as => :check_boxes
+      f.input :regions
     end
 
     actions
